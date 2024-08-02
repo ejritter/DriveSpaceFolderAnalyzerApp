@@ -1,9 +1,13 @@
+using DriveSpaceFolderAnalyzer.Services;
+using DriveSpaceFolderAnalyzer.ViewModel;
+
 namespace DriveSpaceFolderAnalyzer.View;
 
-public partial class MainView : ContentPage
+public partial class MainViewPage : ContentPage
 {
-	public MainView()
+	public MainViewPage(MainViewViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 }

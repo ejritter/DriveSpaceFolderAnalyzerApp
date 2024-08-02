@@ -5,12 +5,38 @@
              xmlns:model="clr-namespace:DriveSpaceFolderAnalyzer.Model"
              xmlns:viewmodel="clr-namespace:DriveSpaceFolderAnalyzer.ViewModel"
              x:DataType="viewmodel:MainViewViewModel"
-             x:Class="DriveSpaceFolderAnalyzer.View.MainView"
-             Title="Welcome! Thank you for choosing us!">
+             x:Class="DriveSpaceFolderAnalyzer.View.MainViewPage"
+             Title="">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Entry x:Name="FolderPathText"
+               Placeholder="Please provide a directory" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" 
+               />
+
+        <Button Text="Browse" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                CornerRadius="10"
+                />
+
+        <CollectionView ItemsSource="{Binding Folders}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Folder">
+                    <Grid ColumnDefinitions="Auto,Auto">
+
+
+                        <Image Grid.Column="0" 
+                               Source="ic_fluent_folder_16_regular.png" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Name}" 
+                               />
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
     </VerticalStackLayout>
 </ContentPage>

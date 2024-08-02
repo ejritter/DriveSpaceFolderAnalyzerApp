@@ -6,10 +6,16 @@ public partial class DataService : ObservableObject,IDataService
 
     public DataService()
     {
-
+        Folders = new();
     }
-    public void GetFolders()
+    public ObservableCollection<Folder> GetFolders()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            Folder folder = new Folder() { Name = "Folder " + (i + 1), Size = "100" };
+            Folders.Add(folder);
+        }
 
+        return Folders;
     }
 }

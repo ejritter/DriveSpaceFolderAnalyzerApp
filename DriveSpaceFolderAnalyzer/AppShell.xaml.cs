@@ -1,4 +1,6 @@
-﻿namespace DriveSpaceFolderAnalyzer;
+﻿using DriveSpaceFolderAnalyzer.View;
+
+namespace DriveSpaceFolderAnalyzer;
 
 public partial class AppShell : Shell
 {

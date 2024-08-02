@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DriveSpaceFolderAnalyzer.Services;
+using DriveSpaceFolderAnalyzer.View;
+using DriveSpaceFolderAnalyzer.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace DriveSpaceFolderAnalyzer;
 public static class MauiProgram
@@ -18,6 +21,11 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+        builder.Services.AddSingleton<IDataService, DataService>();
+
+        builder.Services.AddSingleton<MainViewPage>();
+        builder.Services.AddSingleton<MainViewViewModel>();
+
 
         return builder.Build();
     }
