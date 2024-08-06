@@ -15,4 +15,10 @@
         ContentTemplate="{DataTemplate view:MainViewPage}"
         Route="MainViewPage" />
 
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate view:FolderPickerPage}"
+        Route="FolderPickerPage" />
+
+
 </Shell>

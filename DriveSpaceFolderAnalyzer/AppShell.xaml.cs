@@ -8,5 +8,6 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
         Routing.RegisterRoute(nameof(MainViewPage), typeof(MainViewPage));
+        Routing.RegisterRoute(nameof(FolderPickerPage), typeof(FolderPickerPage));
     }
 }

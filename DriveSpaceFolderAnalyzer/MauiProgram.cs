@@ -23,6 +23,9 @@ public static class MauiProgram
 #endif
         builder.Services.AddSingleton<IDataService, DataService>();
 
+        builder.Services.AddTransient<FolderPickerPage>();
+        builder.Services.AddTransient<FolderPickerViewModel>();
+
         builder.Services.AddSingleton<MainViewPage>();
         builder.Services.AddSingleton<MainViewViewModel>();
 
