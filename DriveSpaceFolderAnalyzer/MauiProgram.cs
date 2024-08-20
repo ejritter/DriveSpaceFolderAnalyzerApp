@@ -1,9 +1,4 @@
-﻿using DriveSpaceFolderAnalyzer.Services;
-using DriveSpaceFolderAnalyzer.View;
-using DriveSpaceFolderAnalyzer.ViewModel;
-using Microsoft.Extensions.Logging;
-
-namespace DriveSpaceFolderAnalyzer;
+﻿namespace DriveSpaceFolderAnalyzer;
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
@@ -23,11 +18,8 @@ public static class MauiProgram
 #endif
         builder.Services.AddSingleton<IDataService, DataService>();
 
-        builder.Services.AddTransient<FolderPickerPage>();
-        builder.Services.AddTransient<FolderPickerViewModel>();
-
-        builder.Services.AddSingleton<MainViewPage>();
-        builder.Services.AddSingleton<MainViewViewModel>();
+        builder.Services.AddSingleton<FolderView>();
+        builder.Services.AddSingleton<FolderViewModel>();
 
 
         return builder.Build();

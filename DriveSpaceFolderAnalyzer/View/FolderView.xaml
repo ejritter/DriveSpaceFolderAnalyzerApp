@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:DriveSpaceFolderAnalyzer.View"
+             xmlns:viewmodel="clr-namespace:DriveSpaceFolderAnalyzer.ViewModel"
+             xmlns:model="clr-namespace:DriveSpaceFolderAnalyzer.Model"
+             x:DataType="viewmodel:FolderViewModel"
+             x:Class="DriveSpaceFolderAnalyzer.View.FolderView"
+             Title="{Binding Title}">
+    <VerticalStackLayout Spacing="200">
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Grid VerticalOptions="Start"
+                  HorizontalOptions="Center"
+                  ColumnDefinitions="1*,1*"
+                  ColumnSpacing="8"
+                  RowDefinitions="1*"
+                  >
+
+                <Entry Grid.Column="0"
+                       Grid.Row="0"
+                       Text="{Binding FolderPath}" 
+                       IsEnabled="False"
+                       Placeholder="Please browse for a folder"
+                       />
+                <Button Grid.Column="1"
+                        Grid.Row="0"
+                        Text="Browse"
+                        />
+            </Grid>
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Grid VerticalOptions="Start"
+                  HorizontalOptions="Center"
+                  ColumnDefinitions="Auto"
+                  RowDefinitions="Auto"
+                  >
+                <CollectionView ItemsSource="{Binding Folders}"
+                                EmptyView="No folder chosen"
+                                ItemsLayout="VerticalGrid,2"
+                                >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:FolderModel">
+                            <Border Stroke="Black">
+                                <Grid ColumnDefinitions="70,80"
+                                  RowDefinitions="35,35"
+                                  Padding="8"
+                                  Margin="8"
+                                  >
+                                    <Image Grid.RowSpan="2"
+                                       HeightRequest="60"
+                                       WidthRequest="60"
+                                       Source="ic_fluent_folder_32_regular.png"
+                                       />
+
+                                    <Label Grid.Column="1" 
+                                       VerticalOptions="Start"
+                                       HorizontalOptions="End"
+                                       Text="{Binding Name}" 
+                                       />
+                                    <Label Grid.Column="1" 
+                                       Grid.Row="1"
+                                       VerticalOptions="End"
+                                       HorizontalOptions="End"
+                                       Text="{Binding Size}" 
+                                       />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

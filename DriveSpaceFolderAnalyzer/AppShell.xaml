@@ -6,19 +6,15 @@
     xmlns:view="clr-namespace:DriveSpaceFolderAnalyzer.View"
     xmlns:viewmodel="clr-namespace:DriveSpaceFolderAnalyzer.ViewModel"
     xmlns:model="clr-namespace:DriveSpaceFolderAnalyzer.Model"
-    x:DataType="viewmodel:MainViewViewModel"
+    x:DataType="viewmodel:FolderViewModel"
     Shell.FlyoutBehavior="Disabled"
     Title="DriveSpaceFolderAnalyzer">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate view:MainViewPage}"
-        Route="MainViewPage" />
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate view:FolderPickerPage}"
-        Route="FolderPickerPage" />
+        ContentTemplate="{DataTemplate view:FolderView}"
+        Route="FolderView" />
 
 
 </Shell>
